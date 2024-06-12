@@ -6,11 +6,11 @@
 /*   By: hesong <hesong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 05:04:36 by hesong            #+#    #+#             */
-/*   Updated: 2024/06/06 15:49:13 by hesong           ###   ########.fr       */
+/*   Updated: 2024/06/12 17:54:44 by hesong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "../includes/Bureaucrat.hpp"
 
 /**
  * Design an artificial nightmare of offices, corridors, forms, and waiting queues.(???)
@@ -26,7 +26,51 @@
 
 int main(void)
 {
+	try
+	{
+		Bureaucrat bureaucratA("A", 42);
+		std::cout << bureaucratA << std::endl;
+	}
+	catch(Bureaucrat::GradeTooHighException &e)
+	{
+		std::cerr << "TooHighException" << std::endl;
+	}
+	catch(Bureaucrat::GradeTooLowException &e)
+	{
+		std::cerr << "TooLowException" << std::endl;
+	}
 
+	//increment grade
+	try
+	{
+		Bureaucrat bureaucratB("B", 1);
+		bureaucratB.incrementGrade();
+		std::cout << bureaucratB << std::endl;
+	}
+	catch(Bureaucrat::GradeTooHighException &e)
+	{
+		std::cerr << "TooHighException" << std::endl;
+	}
+	catch(Bureaucrat::GradeTooLowException &e)
+	{
+		std::cerr << "TooLowException" << std::endl;
+	}
+
+	//decrement grade
+	try
+	{
+		Bureaucrat bureaucratC("C", 150);
+		bureaucratC.decrementGrade();
+		std::cout << bureaucratC << std::endl;
+	}
+	catch(Bureaucrat::GradeTooHighException &e)
+	{
+		std::cerr << "TooHighException" << std::endl;
+	}
+	catch(Bureaucrat::GradeTooLowException &e)
+	{
+		std::cerr << "TooLowException" << std::endl;
+	}
 
 }
 

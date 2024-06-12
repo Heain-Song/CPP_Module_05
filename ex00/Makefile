@@ -7,6 +7,7 @@ SRC_PATH = srcs/
 OBJ_PATH = objects/
 
 SRC = main.cpp\
+	Bureaucrat.cpp\
 
 SRCS	= $(addprefix $(SRC_PATH), $(SRC))
 OBJ		= $(SRC:.cpp=.o)
