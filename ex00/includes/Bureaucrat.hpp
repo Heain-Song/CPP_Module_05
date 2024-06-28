@@ -5,54 +5,50 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hesong <hesong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/08 05:05:37 by hesong            #+#    #+#             */
-/*   Updated: 2024/06/12 17:46:35 by hesong           ###   ########.fr       */
+/*   Created: 2024/06/27 19:30:23 by hesong            #+#    #+#             */
+/*   Updated: 2024/06/28 16:04:39 by hesong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
 
-# define LOWEST 150
-# define HIGHEST 1
+# define LOWEST_GRADE 150
+# define HIGHEST_GRADE 1
 
 # include <iostream>
 # include <string>
-# include <exception>
 
-/*Please note that exception classes don’t have to be designed in
-Orthodox Canonical Form. But every other class has to.*/
+class Bureaucrat{
 
-class Bureaucrat
-{
 	public:
-		Bureaucrat();
-		Bureaucrat(std::string Name, int Grade);
-		Bureaucrat(Bureaucrat const & src);
-		~Bureaucrat();
-
-		Bureaucrat & operator=(Bureaucrat const & obj);
+		Bureaucrat(void);
+		Bureaucrat(std::string name, int grade);
+		Bureaucrat(const Bureaucrat & src);
+		Bureaucrat & operator=(const Bureaucrat & rhs);
+		~Bureaucrat(void);
 
 		std::string getName() const;
-		int getGrade() const;
+		int			getGrade() const;
+		void		increaseGrade();
+		void		decreaseGrade();
 
-		void	incrementGrade();
-		void	decrementGrade();
+		class GradeTooHighException : public std::exception {
 
-		class GradeTooHighException : public std::exception
-		{
 			public:
-				const char *what() const throw();
+				virtual const char* what() const throw();
 		};
-		class GradeTooLowException : public std::exception
-		{
-			const char *what() const throw();
+		class GradeTooLowException : public std::exception {
+
+			public:
+				virtual const char* what() const throw();
 		};
+
 	private:
-		std::string const Name;
-		int	Grade;
+		std::string _name;
+		int			_grade;
 };
 
-std::ostream & operator<<(std::ostream & o, Bureaucrat const & obj);
+std::ostream & operator<<(std::ostream & out, Bureaucrat const & bureaucrat);
 
 #endif
