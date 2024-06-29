@@ -6,7 +6,7 @@
 /*   By: hesong <hesong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 19:30:23 by hesong            #+#    #+#             */
-/*   Updated: 2024/06/28 16:04:39 by hesong           ###   ########.fr       */
+/*   Updated: 2024/06/29 17:57:58 by hesong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,11 @@
 
 # include <iostream>
 # include <string>
+# include "Form.hpp"
 
-class Bureaucrat{
+class	Form; //Forward declaration
+
+class	Bureaucrat{
 
 	public:
 		Bureaucrat(void);
@@ -28,18 +31,17 @@ class Bureaucrat{
 		Bureaucrat & operator=(const Bureaucrat & rhs);
 		~Bureaucrat(void);
 
-		std::string getName() const;
-		int			getGrade() const;
-		void		increaseGrade();
-		void		decreaseGrade();
+		std::string	getName(void) const;
+		int			getGrade(void) const;
+		void		increaseGrade(void);
+		void		decreaseGrade(void);
+		void		signForm(Form & form);
 
 		class GradeTooHighException : public std::exception {
-
 			public:
 				virtual const char* what() const throw();
 		};
 		class GradeTooLowException : public std::exception {
-
 			public:
 				virtual const char* what() const throw();
 		};

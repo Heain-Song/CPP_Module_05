@@ -6,18 +6,20 @@
 /*   By: hesong <hesong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 16:47:57 by hesong            #+#    #+#             */
-/*   Updated: 2024/06/28 18:19:12 by hesong           ###   ########.fr       */
+/*   Updated: 2024/06/29 17:56:41 by hesong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FORM_HPP
 # define FORM_HPP
 
-# include <iostream>
 # include <string>
+# include <iostream>
 # include "Bureaucrat.hpp"
 
-class Form{
+class Bureaucrat;
+
+class	Form{
 
 	public:
 		Form(void);
@@ -30,13 +32,12 @@ class Form{
 		bool		getIsSigned(void) const;
 		int			getRequiredGradeToSign(void) const;
 		int			getRequiredGradeToExec(void) const;
-		void		beSigned(const Bureaucrat & bureaucrat) const;
+		void		beSigned(const Bureaucrat & bureaucrat);
 
 		class GradeTooHighException : public std::exception {
 			public:
 				virtual const char *what() const throw();
 		};
-
 		class GradeTooLowException : public std::exception {
 			public:
 				virtual const char *what() const throw();
