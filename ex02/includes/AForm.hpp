@@ -6,7 +6,7 @@
 /*   By: hesong <hesong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 18:15:52 by hesong            #+#    #+#             */
-/*   Updated: 2024/06/29 23:05:27 by hesong           ###   ########.fr       */
+/*   Updated: 2024/06/30 12:09:06 by hesong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,19 +45,19 @@ class	AForm{
 			public:
 				virtual const char *what() const throw();
 		};
-		class FormAlreadySigned : public std::exception {
+		class FormAlreadySignedException : public std::exception {
 			public:
 				virtual const char *what() const throw();
 		};
-		class FormNotSigned : public std::exception {
+		class FormNotSignedException : public std::exception {
 			public:
 				virtual const char *what() const throw();
 		};
-		class CreateFileFailed : public std::exception {
+		class CreateFileFailedException : public std::exception {
 			public:
 				virtual const char *what() const throw();
 		};
-		class ReadFileFailed : public std::exception {
+		class ReadFileFailedException : public std::exception {
 			public:
 				virtual const char *what() const throw();
 		};

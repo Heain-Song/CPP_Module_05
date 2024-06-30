@@ -6,15 +6,15 @@
 /*   By: hesong <hesong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 19:30:23 by hesong            #+#    #+#             */
-/*   Updated: 2024/06/29 17:57:58 by hesong           ###   ########.fr       */
+/*   Updated: 2024/06/29 21:35:34 by hesong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
 
-# define LOWEST_GRADE 150
-# define HIGHEST_GRADE 1
+# define LOWEST 150
+# define HIGHEST 1
 
 # include <iostream>
 # include <string>

@@ -6,7 +6,7 @@
 /*   By: hesong <hesong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 18:15:37 by hesong            #+#    #+#             */
-/*   Updated: 2024/06/29 23:06:29 by hesong           ###   ########.fr       */
+/*   Updated: 2024/06/30 12:43:20 by hesong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,12 +92,12 @@ void	AForm::beSigned(const Bureaucrat & bureaucrat)
 
 void	AForm::execute(Bureaucrat const & executor) const
 {
-	if (executor.getGrade() >= _gradeToExec)
-		throw GradeTooLowException();
 	if (!_isSigned)
-		std::cout << this->_name << "is already signed." << std::endl;
+		throw FormNotSignedException();
+	if (executor.getGrade() > _gradeToExec)
+		throw GradeTooLowException();
 	std::cout << executor.getName() << " executed " << this->_name << std::endl;
-	//specificExecute();
+	execute(executor);
 }
 
 const char * AForm::GradeTooHighException::what() const throw()
@@ -109,31 +109,31 @@ const char * AForm::GradeTooLowException::what() const throw()
 {
 	return ("AForm::GradeTooLowException");
 }
-const char * AForm::FormAlreadySigned::what() const throw()
+const char * AForm::FormAlreadySignedException::what() const throw()
 {
-	return ("AForm::FormAlreadySigned");
+	return ("AForm::FormAlreadySignedException");
 }
 
-const char * AForm::FormNotSigned::what() const throw()
+const char * AForm::FormNotSignedException::what() const throw()
 {
-	return ("AForm::FormNotSigned");
+	return ("AForm::FormNotSignedException");
 }
-const char * AForm::CreateFileFailed::what() const throw()
+const char * AForm::CreateFileFailedException::what() const throw()
 {
-	return ("AForm::CreateFileFailed");
+	return ("AForm::CreateFileFailedException");
 }
-const char * AForm::ReadFileFailed::what() const throw()
+const char * AForm::ReadFileFailedException::what() const throw()
 {
-	return ("AForm::ReadFileFailed");
+	return ("AForm::ReadFileFailedException");
 }
 
 std::ostream & operator<< (std::ostream & out, AForm const & form)
 {
-	std::cout << "-----------Form Info-----------" << std::endl;
+	std::cout << std::endl << "-----------Form Info-----------" << std::endl;
 	out << "Form name: " << form.getName() << std::endl;
 	out << "Status: " << form.getIsSigned() << std::endl;
 	out << "Required grade to sign: " << form.getgradeToSign() << std::endl;
 	out << "Required grade to execute: " << form.getgradeToExec() << std::endl;
-	std::cout << "-------------End---------------";
+	std::cout << "-------------End---------------" << std::endl;
 	return (out);
 }

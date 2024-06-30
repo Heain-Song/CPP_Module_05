@@ -6,7 +6,7 @@
 /*   By: hesong <hesong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 22:11:28 by hesong            #+#    #+#             */
-/*   Updated: 2024/06/29 23:56:33 by hesong           ###   ########.fr       */
+/*   Updated: 2024/06/30 12:18:13 by hesong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,13 @@ void	RobotomyRequestForm::execute(const Bureaucrat &bureaucrat) const
 	if (!this->getIsSigned())
 	{
 		std::cout << this->_target << " failed." << std::endl;
-		throw RobotomyRequestForm::FormNotSigned();
+		throw RobotomyRequestForm::FormNotSignedException();
 	}
 	if (bureaucrat.getGrade() > this->getgradeToExec())
 	{
 		std::cout << this->_target << " failed." << std::endl;
 		throw RobotomyRequestForm::GradeTooLowException();
 	}
-	std::cout << "Making some drilling noises!" << std::endl;
+	std::cout << this->_target << " is making some drilling noises!" << std::endl;
 	std::cout << this->_target << " has been robotomized successfully 50% of the time." << std::endl;
 }

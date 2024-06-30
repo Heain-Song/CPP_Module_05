@@ -1,31 +1,25 @@
 NAME = ex00
 
-CC	= c++
-CFLAGS	= -Wall -Wextra -Werror -std=c++98
+CC = c++
 
-SRC_PATH = srcs/
-OBJ_PATH = objects/
+CFLAGS = -Wall -Wextra -Werror #-fsanitize=address
 
-SRC = main.cpp\
-	Bureaucrat.cpp\
+INC =  Bureaucrat.hpp
 
-SRCS	= $(addprefix $(SRC_PATH), $(SRC))
-OBJ		= $(SRC:.cpp=.o)
-OBJS	= $(addprefix $(OBJ_PATH), $(OBJ))
+SRC = main.cpp Bureaucrat.cpp
 
-INC		= -I ./includes/
+OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
 
-$(OBJ_PATH)%.o: $(SRC_PATH)%.cpp
-	@mkdir -p $(OBJ_PATH)
-	$(CC) $(CFLAGS) -c $< -o $@ $(INC)
+$(NAME): $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) -o $(NAME) -std=c++98
 
-$(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $@
+%.o:%.cpp $(INC)
+	$(CC) $(CFLAGS) -c $< -std=c++98
 
 clean:
-	rm -rf $(OBJ_PATH)
+	rm -f $(OBJ)
 
 fclean: clean
 	rm -f $(NAME)

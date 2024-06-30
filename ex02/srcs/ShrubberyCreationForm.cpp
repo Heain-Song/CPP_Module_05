@@ -6,7 +6,7 @@
 /*   By: hesong <hesong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 18:14:17 by hesong            #+#    #+#             */
-/*   Updated: 2024/06/29 23:26:34 by hesong           ###   ########.fr       */
+/*   Updated: 2024/06/30 12:31:17 by hesong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm(void)
 void ShrubberyCreationForm::execute(const Bureaucrat &bureaucrat) const
 {
 	if (!this->getIsSigned())
-		throw ShrubberyCreationForm::FormNotSigned();
+		throw ShrubberyCreationForm::FormNotSignedException();
 	if (bureaucrat.getGrade() > this->getgradeToExec())
 		throw ShrubberyCreationForm::GradeTooLowException();
 
@@ -51,7 +51,7 @@ void ShrubberyCreationForm::execute(const Bureaucrat &bureaucrat) const
 	std::ofstream out(fileName.c_str());
 
 	if (out.fail())
-		throw ShrubberyCreationForm::CreateFileFailed();
+		throw ShrubberyCreationForm::CreateFileFailedException();
 	out << "                                              .         ;  \n";
 	out << "                                                         .\n";
 	out << "                 .              .              ;%     ;;   \n";

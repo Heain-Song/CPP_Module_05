@@ -6,11 +6,11 @@
 /*   By: hesong <hesong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 19:21:29 by hesong            #+#    #+#             */
-/*   Updated: 2024/06/28 16:33:10 by hesong           ###   ########.fr       */
+/*   Updated: 2024/06/29 15:39:39 by hesong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Bureaucrat.hpp"
+#include "Bureaucrat.hpp"
 
 int main(void)
 {
@@ -26,11 +26,11 @@ int main(void)
 	}
 	catch (Bureaucrat::GradeTooHighException& e)
 	{
-		std::cerr << "TooHighException" << std::endl;
+		std::cerr << "Bureaucrat::GradeTooHighException" << std::endl;
 	}
 	catch (Bureaucrat::GradeTooLowException& e)
 	{
-		std::cerr << "TooLowException" << std::endl;
+		std::cerr << "Bureaucrat::TooLowException" << std::endl;
 	}
 
 	try
@@ -43,11 +43,11 @@ int main(void)
 	}
 	catch (Bureaucrat::GradeTooHighException& e)
 	{
-		std::cerr << "TooHighException" << std::endl;
+		std::cerr << "Bureaucrat::GradeTooHighException" << std::endl;
 	}
 	catch (Bureaucrat::GradeTooLowException& e)
 	{
-		std::cerr << "TooLowException" << std::endl;
+		std::cerr << "Bureaucrat::GradeTooLowException" << std::endl;
 	}
 	
 	try
@@ -60,11 +60,11 @@ int main(void)
 	}
 	catch (Bureaucrat::GradeTooHighException& e)
 	{
-		std::cerr << "TooHighException" << std::endl;
+		std::cerr << "Bureaucrat::GradeTooHighException" << std::endl;
 	}
 	catch (Bureaucrat::GradeTooLowException& e)
 	{
-		std::cerr << "TooLowException" << std::endl;
+		std::cerr << "Bureaucrat::GradeTooLowException" << std::endl;
 	}
 
 	return (0);

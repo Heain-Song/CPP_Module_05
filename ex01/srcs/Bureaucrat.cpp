@@ -6,13 +6,13 @@
 /*   By: hesong <hesong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 20:22:45 by hesong            #+#    #+#             */
-/*   Updated: 2024/06/29 17:18:43 by hesong           ###   ########.fr       */
+/*   Updated: 2024/06/29 21:35:34 by hesong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(void) : _name("unknown"), _grade(LOWEST_GRADE)
+Bureaucrat::Bureaucrat(void) : _name("unknown"), _grade(LOWEST)
 {
 	std::cout << "Default constructor called for Bureaucrat " << this->_name << "." << std::endl;
 }
@@ -20,9 +20,9 @@ Bureaucrat::Bureaucrat(void) : _name("unknown"), _grade(LOWEST_GRADE)
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name)
 {
 	std::cout << "Parameterized Constructor called for Bureaucrat " << this->_name << "." << std::endl;
-	if (grade < HIGHEST_GRADE)
+	if (grade < HIGHEST)
 		throw Bureaucrat::GradeTooHighException();
-	if (grade > LOWEST_GRADE)
+	if (grade > LOWEST)
 		throw Bureaucrat::GradeTooLowException();
 	this->_grade = grade;
 }
@@ -36,9 +36,9 @@ Bureaucrat::Bureaucrat(const Bureaucrat & src)
 Bureaucrat & Bureaucrat::operator=(const Bureaucrat & rhs)
 {
 	std::cout << "Copy  Assignment Operator called for Bureaucrat " << this->_name << "." << std::endl;
-	if (rhs._grade < HIGHEST_GRADE)
+	if (rhs._grade < HIGHEST)
 		throw Bureaucrat::GradeTooHighException();
-	if (rhs._grade > LOWEST_GRADE)
+	if (rhs._grade > LOWEST)
 		throw Bureaucrat::GradeTooLowException();
 	this->_grade = rhs._grade;
 	return (*this);
@@ -62,7 +62,7 @@ int	Bureaucrat::getGrade() const
 void	Bureaucrat::increaseGrade()
 {
 	this->_grade--;
-	if (this->_grade < HIGHEST_GRADE)
+	if (this->_grade < HIGHEST)
 		throw Bureaucrat::GradeTooHighException();
 	std::cout << "Grade increasement done." << std::endl;
 }
@@ -70,17 +70,17 @@ void	Bureaucrat::increaseGrade()
 void	Bureaucrat::decreaseGrade()
 {
 	this->_grade++;
-	if (this->_grade > LOWEST_GRADE)
+	if (this->_grade > LOWEST)
 		throw Bureaucrat::GradeTooLowException();
 	std::cout << "Grade decreasement done." << std::endl;
 }
 
 void	Bureaucrat::signForm(Form & form)
 {
- 	if (this->_grade < form.getRequiredGradeToSign())
- 		std::cout << this->_name << " couldn't sign Form " << form.getName() << " because " << form.getRequiredGradeToSign() << " is required to sign it." << std::endl;
- 	if (this->_grade < form.getRequiredGradeToExec())
- 		std::cout << this->_name << " couldn't execute Form " << form.getName() << " because " << form.getRequiredGradeToExec() << " is required to execute it." << std::endl;
+ 	if (this->_grade < form.getgradeToToSign())
+ 		std::cout << this->_name << " couldn't sign Form " << form.getName() << " because " << form.getgradeToToSign() << " is required to sign it." << std::endl;
+ 	if (this->_grade < form.getgradeToToExec())
+ 		std::cout << this->_name << " couldn't execute Form " << form.getName() << " because " << form.getgradeToToExec() << " is required to execute it." << std::endl;
 	if (form.getIsSigned() == true)
 		std::cout << this->_name << " couldn't sign " << form.getName() << " because this form is already signed." << std::endl;
 	else
