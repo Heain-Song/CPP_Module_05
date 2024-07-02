@@ -6,7 +6,7 @@
 /*   By: hesong <hesong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 19:30:23 by hesong            #+#    #+#             */
-/*   Updated: 2024/06/30 12:26:23 by hesong           ###   ########.fr       */
+/*   Updated: 2024/07/01 21:07:35 by hesong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ class	Bureaucrat{
 		int			getGrade(void) const;
 		void		increaseGrade(void);
 		void		decreaseGrade(void);
-		void		signAForm(const AForm & form);
+		void		signAForm(AForm & form);
 		void		executeForm(AForm const & form);
 
 		class GradeTooHighException : public std::exception {

@@ -6,7 +6,7 @@
 /*   By: hesong <hesong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 18:14:17 by hesong            #+#    #+#             */
-/*   Updated: 2024/06/30 12:31:17 by hesong           ###   ########.fr       */
+/*   Updated: 2024/07/02 11:42:11 by hesong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,36 +15,37 @@
 ShrubberyCreationForm::ShrubberyCreationForm(void)
 : AForm("ShrubberyCreationForm", 145, 137), _target("unknown")
 {
-	std::cout << "Default constructor called for ShrubberyCreationForm " << this->_target << "." << std::endl;
+	//std::cout << "Default constructor called for ShrubberyCreationForm " << this->_target << "." << std::endl;
 }
+
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string target)
 : AForm("ShrubberyCreationForm", 145, 137), _target(target)
 {
-	std::cout << "Parameterized constructor called for ShrubberyCreationForm " << this->_target << "." << std::endl;
+	//std::cout << "Parameterized constructor called for ShrubberyCreationForm " << this->_target << "." << std::endl;
 }
+
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm & src)
 : AForm("ShrubberyCreationForm", 145, 137), _target(src._target)
 {
-	std::cout << "Copy constructor called for ShrubberyCreationForm " << this->_target << "." << std::endl;
+	//std::cout << "Copy constructor called for ShrubberyCreationForm " << this->_target << "." << std::endl;
 	*this = src;
 }
-
 ShrubberyCreationForm & ShrubberyCreationForm::operator=(const ShrubberyCreationForm & rhs)
 {
-	std::cout << "Copy Assignment Operator called for ShrubberyCreationForm " << this->_target << "." << std::endl;
+	//std::cout << "Copy Assignment Operator called for ShrubberyCreationForm " << this->_target << "." << std::endl;
 	this->_target = rhs._target;
 	return (*this);
 }
-
 ShrubberyCreationForm::~ShrubberyCreationForm(void)
 {
-	std::cout << "Destructor called for ShrubberyCreationForm " << this->_target << "." << std::endl;
+	//std::cout << "Destructor called for ShrubberyCreationForm " << this->_target << "." << std::endl;
 }
-void ShrubberyCreationForm::execute(const Bureaucrat &bureaucrat) const
+
+void ShrubberyCreationForm::formActionExecute(const Bureaucrat &bureaucrat) const
 {
 	if (!this->getIsSigned())
 		throw ShrubberyCreationForm::FormNotSignedException();
-	if (bureaucrat.getGrade() > this->getgradeToExec())
+	if (bureaucrat.getGrade() > this->getGradeToExec())
 		throw ShrubberyCreationForm::GradeTooLowException();
 
 	std::string fileName = _target + "_shrubbery";
@@ -81,4 +82,5 @@ void ShrubberyCreationForm::execute(const Bureaucrat &bureaucrat) const
 	out << "                              ;%@@@@%%:;;;. \n";
 	out << "                          ...;%@@@@@%%:;;;;,..  \n";
 	out.close();
+	std::cout << fileName << " has been created in the working directory" << std::endl;
 }

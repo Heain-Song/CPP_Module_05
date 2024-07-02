@@ -6,7 +6,7 @@
 /*   By: hesong <hesong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 18:15:52 by hesong            #+#    #+#             */
-/*   Updated: 2024/06/30 12:09:06 by hesong           ###   ########.fr       */
+/*   Updated: 2024/07/01 21:09:16 by hesong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <fstream>
 # include "Bureaucrat.hpp"
 
-class Bureaucrat; ////Forward declaration
+class Bureaucrat; //Forward declaration
 
 class	AForm{
 
@@ -31,11 +31,12 @@ class	AForm{
 
 		std::string	getName(void) const;
 		bool		getIsSigned(void) const;
-		int			getgradeToSign(void) const;
-		int			getgradeToExec(void) const;
+		int			getGradeToSign(void) const;
+		int			getGradeToExec(void) const;
 
-		void	beSigned(Bureaucrat const & bureaucrat);
+		void	beSigned(Bureaucrat & bureaucrat);
 		void	execute(Bureaucrat const & executor) const;
+		virtual void	formActionExecute(const Bureaucrat & bureaucrat) const = 0;
 
 		class GradeTooHighException : public std::exception {
 			public:

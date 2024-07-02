@@ -6,7 +6,7 @@
 /*   By: hesong <hesong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 23:48:58 by hesong            #+#    #+#             */
-/*   Updated: 2024/06/30 12:43:02 by hesong           ###   ########.fr       */
+/*   Updated: 2024/07/01 19:19:49 by hesong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class PresidentialPardonForm : public AForm {
 		~PresidentialPardonForm(void);
 
 		std::string	getTarget() const;
-		void execute(const Bureaucrat &bureaucrat) const;
+		void	formActionExecute(const Bureaucrat & bureaucrat) const;
 
 	private:
 		std::string _target;

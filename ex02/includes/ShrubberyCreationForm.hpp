@@ -6,7 +6,7 @@
 /*   By: hesong <hesong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 18:18:14 by hesong            #+#    #+#             */
-/*   Updated: 2024/06/30 12:43:08 by hesong           ###   ########.fr       */
+/*   Updated: 2024/07/01 19:19:05 by hesong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class ShrubberyCreationForm : public AForm {
 		ShrubberyCreationForm & operator=(const ShrubberyCreationForm & rhs);
 		~ShrubberyCreationForm(void);
 
-		void execute(const Bureaucrat &bureaucrat) const;
+		void	formActionExecute(const Bureaucrat & bureaucrat) const;
 
 	private:
 		std::string	_target;
