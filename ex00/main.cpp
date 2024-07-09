@@ -6,7 +6,7 @@
 /*   By: hesong <hesong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 19:21:29 by hesong            #+#    #+#             */
-/*   Updated: 2024/06/29 15:39:39 by hesong           ###   ########.fr       */
+/*   Updated: 2024/07/09 16:30:08 by hesong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ int main(void)
 {
 	Bureaucrat bureaucratA;
 	std::cout << bureaucratA << std::endl;
-	
+
+	std::cout << std::endl;
 	try
 	{
 		Bureaucrat bureaucratB("B", 1);
@@ -30,9 +31,10 @@ int main(void)
 	}
 	catch (Bureaucrat::GradeTooLowException& e)
 	{
-		std::cerr << "Bureaucrat::TooLowException" << std::endl;
+		std::cerr << "Bureaucrat::GradeTooLowException" << std::endl;
 	}
 
+	std::cout << std::endl;
 	try
 	{
 		Bureaucrat bureaucratC("C", 42);
@@ -49,7 +51,8 @@ int main(void)
 	{
 		std::cerr << "Bureaucrat::GradeTooLowException" << std::endl;
 	}
-	
+
+	std::cout << std::endl;
 	try
 	{
 		Bureaucrat bureaucratD("D", 150);
