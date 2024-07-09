@@ -1,7 +1,7 @@
 NAME = ex02
 
 CC	= c++
-CFLAGS	= -Wall -Wextra -Werror -std=c++98
+CFLAGS	= -Wall -Wextra -Werror -std=c++98 #fsanitize=address
 
 SRC_PATH = srcs/
 OBJ_PATH = objects/
@@ -30,6 +30,8 @@ $(NAME): $(OBJS)
 
 clean:
 	rm -rf $(OBJ_PATH)
+	rm -rf *"_shrubbery"
+
 
 fclean: clean
 	rm -f $(NAME)
