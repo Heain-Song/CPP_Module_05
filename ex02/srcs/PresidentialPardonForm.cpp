@@ -6,14 +6,14 @@
 /*   By: hesong <hesong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 23:52:08 by hesong            #+#    #+#             */
-/*   Updated: 2024/07/01 21:19:17 by hesong           ###   ########.fr       */
+/*   Updated: 2024/07/09 16:38:30 by hesong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/PresidentialPardonForm.hpp"
 
 PresidentialPardonForm::PresidentialPardonForm(void)
-: AForm("PresidentialPardonForm", 25, 5), _target("unknown")
+: AForm("PresidentialPardonForm", 25, 5), _target("Unknown")
 {
 	//std::cout << "Default constructor called for PresidentialPardonForm " << this->_target << "." << std::endl;
 }

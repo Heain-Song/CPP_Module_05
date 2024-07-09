@@ -6,18 +6,20 @@
 /*   By: hesong <hesong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 20:22:45 by hesong            #+#    #+#             */
-/*   Updated: 2024/07/09 16:25:13 by hesong           ###   ########.fr       */
+/*   Updated: 2024/07/09 16:39:53 by hesong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(void) : _name("Unknown"), _grade(LOWEST)
+Bureaucrat::Bureaucrat(void)
+: _name("Unknown"), _grade(LOWEST)
 {
 	//std::cout << "Default constructor called for Bureaucrat " << this->_name << "." << std::endl;
 }
 
-Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name)
+Bureaucrat::Bureaucrat(std::string name, int grade)
+: _name(name)
 {
 	//std::cout << "Parameterized Constructor called for Bureaucrat " << this->_name << "." << std::endl;
 	if (grade < HIGHEST)

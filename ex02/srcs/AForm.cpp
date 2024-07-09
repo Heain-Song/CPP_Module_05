@@ -6,7 +6,7 @@
 /*   By: hesong <hesong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 18:15:37 by hesong            #+#    #+#             */
-/*   Updated: 2024/07/02 11:42:26 by hesong           ###   ########.fr       */
+/*   Updated: 2024/07/09 16:40:42 by hesong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "../includes/Bureaucrat.hpp"
 
 AForm::AForm(void)
-: _name("unknown"), _isSigned(false), _gradeToSign(LOWEST), _gradeToExec(LOWEST)
+: _name("Unknown"), _isSigned(false), _gradeToSign(LOWEST), _gradeToExec(LOWEST)
 {
 	//std::cout << "Default constructor called for AForm " << this->_name << "." << std::endl;
 }

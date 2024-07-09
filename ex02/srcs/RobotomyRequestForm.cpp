@@ -6,14 +6,14 @@
 /*   By: hesong <hesong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 22:11:28 by hesong            #+#    #+#             */
-/*   Updated: 2024/07/02 10:26:06 by hesong           ###   ########.fr       */
+/*   Updated: 2024/07/09 16:39:13 by hesong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/RobotomyRequestForm.hpp"
 
 RobotomyRequestForm::RobotomyRequestForm(void)
-: AForm("RobotomyRequestForm", 72, 45), _target("unknown")
+: AForm("RobotomyRequestForm", 72, 45), _target("Unknown")
 {
 	//std::cout << "Default constructor called for RobotomyRequestForm " << this->_target << "." << std::endl;
 }
@@ -48,15 +48,9 @@ std::string	RobotomyRequestForm::getTarget() const
 void	RobotomyRequestForm::formActionExecute(const Bureaucrat & bureaucrat) const
 {
 	if (!this->getIsSigned())
-	{
-		std::cout << this->_target << " failed." << std::endl;
 		throw RobotomyRequestForm::FormNotSignedException();
-	}
 	if (bureaucrat.getGrade() > this->getGradeToExec())
-	{
-		std::cout << this->_target << " failed." << std::endl;
 		throw RobotomyRequestForm::GradeTooLowException();
-	}
 	std::cout << this->_target << " is making some drilling noises!" << std::endl;
 	std::cout << this->_target << " has been robotomized successfully 50% of the time." << std::endl;
 }
