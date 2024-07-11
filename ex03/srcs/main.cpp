@@ -6,61 +6,34 @@
 /*   By: hesong <hesong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 19:21:29 by hesong            #+#    #+#             */
-/*   Updated: 2024/07/02 11:48:00 by hesong           ###   ########.fr       */
+/*   Updated: 2024/07/11 16:49:36 by hesong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Bureaucrat.hpp"
-#include "../includes/AForm.hpp"
+#include "../includes/Form.hpp"
+#include "../includes/Form.hpp"
 #include "../includes/ShrubberyCreationForm.hpp"
 #include "../includes/RobotomyRequestForm.hpp"
 #include "../includes/PresidentialPardonForm.hpp"
+#include "../includes/Intern.hpp"
 
 int main(void)
 {
-	std::cout << "= = = = = = = = = =  = = = = = = Bureaucrat Creation = = = = = = = = = = = = = = = = = = = " << std::endl;
-	Bureaucrat bureaucratS ("bureaucratS", 140);
-	std::cout << bureaucratS << std::endl;
+	Intern someRandomIntern;
 
-	Bureaucrat bureaucratR ("bureaucratR", 50);
-	std::cout << bureaucratR << std::endl;
+	Form* rrf;
+	rrf = someRandomIntern.makeForm("robotomy request", "Bender");
 
-	Bureaucrat bureaucratP ("bureaucratP", 10);
-	std::cout << bureaucratP << std::endl;
+	 if (rrf != NULL) {
+		std::cout << "Form created successfully!" << std::endl;
+		// Optionally, perform more operations with rrf
+	}
+	else {
+		std::cout << "Form creation failed!" << std::endl;
+	}
 
-	std::cout << "= = = = = = = = = = = = = = = ShrubberyCreationForm Test = = = = = = = = = = = = = = = = = " << std::endl;
-	ShrubberyCreationForm shrubbery ("myShrubbery");
-
-	std::cout << shrubbery << std::endl;
-
-	bureaucratS.signAForm(shrubbery);
-	bureaucratS.signAForm(shrubbery);
-	bureaucratS.executeForm(shrubbery);
-	bureaucratS.executeForm(shrubbery);
-
-	std::cout << shrubbery << std::endl;
-
-	std::cout << "= = = = = = = = = = = = = = = RobotomyRequest Test = = = = = = = = = = = = = = = = = " << std::endl;
-	RobotomyRequestForm robot ("myRobot");
-	std::cout << robot << std::endl;
-
-	bureaucratR.signAForm(robot);
-	bureaucratR.signAForm(robot);
-	bureaucratR.executeForm(robot);
-	bureaucratR.executeForm(robot);
-
-	std::cout << robot << std::endl;
-
-	std::cout << "= = = = = = = = = = = = = = = PresidentialPardonForm Test = = = = = = = = = = = = = = = = = " << std::endl;
-	PresidentialPardonForm president("myPresident");
-	std::cout << president << std::endl;
-
-	bureaucratP.signAForm(president);
-	bureaucratP.signAForm(president);
-	bureaucratP.executeForm(president);
-	bureaucratP.executeForm(president);
-
-	std::cout << president << std::endl;
-
+	// Remember to delete the created form to avoid memory leaks
+	delete rrf;
 	return (0);
 }

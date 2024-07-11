@@ -6,26 +6,26 @@
 /*   By: hesong <hesong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 18:14:17 by hesong            #+#    #+#             */
-/*   Updated: 2024/07/02 11:42:11 by hesong           ###   ########.fr       */
+/*   Updated: 2024/07/11 16:45:36 by hesong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ShrubberyCreationForm.hpp"
 
 ShrubberyCreationForm::ShrubberyCreationForm(void)
-: AForm("ShrubberyCreationForm", 145, 137), _target("unknown")
+: Form("ShrubberyCreationForm", 145, 137), _target("unknown")
 {
 	//std::cout << "Default constructor called for ShrubberyCreationForm " << this->_target << "." << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string target)
-: AForm("ShrubberyCreationForm", 145, 137), _target(target)
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string name, const std::string target)
+: Form(name, 145, 137), _target(target)
 {
 	//std::cout << "Parameterized constructor called for ShrubberyCreationForm " << this->_target << "." << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm & src)
-: AForm("ShrubberyCreationForm", 145, 137), _target(src._target)
+: Form("ShrubberyCreationForm", 145, 137), _target(src._target)
 {
 	//std::cout << "Copy constructor called for ShrubberyCreationForm " << this->_target << "." << std::endl;
 	*this = src;

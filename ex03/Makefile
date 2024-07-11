@@ -1,17 +1,18 @@
 NAME = ex03
 
 CC	= c++
-CFLAGS	= -Wall -Wextra -Werror -std=c++98
+CFLAGS	= -Wall -Wextra -Werror -std=c++98 #fsanitize=address
 
 SRC_PATH = srcs/
 OBJ_PATH = objects/
 
 SRC = main.cpp\
 	Bureaucrat.cpp\
-	AForm.cpp\
+	Form.cpp\
 	ShrubberyCreationForm.cpp\
 	RobotomyRequestForm.cpp \
 	PresidentialPardonForm.cpp\
+	Intern.cpp\
 
 SRCS	= $(addprefix $(SRC_PATH), $(SRC))
 OBJ		= $(SRC:.cpp=.o)
@@ -30,6 +31,8 @@ $(NAME): $(OBJS)
 
 clean:
 	rm -rf $(OBJ_PATH)
+	rm -rf *"_shrubbery"
+
 
 fclean: clean
 	rm -f $(NAME)
