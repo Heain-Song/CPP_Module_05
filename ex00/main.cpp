@@ -6,7 +6,7 @@
 /*   By: hesong <hesong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 19:21:29 by hesong            #+#    #+#             */
-/*   Updated: 2024/07/09 16:30:08 by hesong           ###   ########.fr       */
+/*   Updated: 2024/07/13 11:45:01 by hesong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,6 @@ int main(void)
 	{
 		std::cerr << "Bureaucrat::GradeTooLowException" << std::endl;
 	}
-
+	std::cout << std::endl;
 	return (0);
 }

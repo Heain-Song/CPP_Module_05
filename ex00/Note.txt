@@ -1,0 +1,19 @@
+Why catching exceptions by reference is the best practice?
+-> because it prevents object slicing, maintains polymorphic behavior,
+and avoids the overhead of copying exception objects.
+
+Avoiding Unnecessary Copying
+When an exception is thrown, an object of the exception type is created.
+If you catch the exception by value, a copy of this exception object is made.
+This can be inefficient, especially if the exception object is large or if the copy constructor has significant overhead.
+
+Preserving Polymorphism
+C++ supports polymorphism, which means a reference to a base class can refer to an object of a derived class.
+If you catch by value, the exception object will be sliced,
+losing any derived class information, and you will end up with a base class object.
+This slicing problem can be avoided by catching the exception by reference.
+
+By catching exceptions by reference, you ensure that:
+
+No Slicing: The exact type of the exception object is preserved, allowing access to derived class-specific information if necessary.
+Efficiency: You avoid the overhead of copying the exception object.
